@@ -128,10 +128,10 @@ def LSTM_ALGO(df):
     dataset_train = df.iloc[0:int(0.8*len(df)), :]
     dataset_test = df.iloc[int(0.8*len(df)):, :]
     training_set = df.iloc[:, 4:5].values
-    sc = MinMaxScaler(feature_range=(0, 1)) #Scaled values btween 0,1
+    sc = MinMaxScaler(feature_range=(0, 1))  # Scaled values btween 0,1
     training_set_scaled = sc.fit_transform(training_set)
-    X_train = [] #memory with 7 days from day i
-    y_train = [] #day i
+    X_train = []  # memory with 7 days from day i
+    y_train = []  # day i
     for i in range(7, len(training_set_scaled)):
         X_train.append(training_set_scaled[i-7:i, 0])
         y_train.append(training_set_scaled[i, 0])
@@ -139,7 +139,7 @@ def LSTM_ALGO(df):
     y_train = np.array(y_train)
     X_forecast = np.array(X_train[-1, 1:])
     X_forecast = np.append(X_forecast, y_train[-1])
-    X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1)) #.shape 0=row,1=col
+    X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))  # .shape 0=row,1=col
     X_forecast = np.reshape(X_forecast, (1, X_forecast.shape[0], 1))
     regressor = Sequential()
     regressor.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], 1)))
