@@ -11,19 +11,25 @@
 # Скриншоты
 Интерфейс главной станицы проекта
 ![Главная страница проекта](screenshorts/main.png)
+
 Интерфейс дашборда пользователя
 ![Дашборд пользователя](screenshorts/dashboard.png)
+
 Интерфейс модуля предсказзания стоимости акций на Streamlit
 ![Модуль предсказания на Streamlit](screenshorts/strreamlit .png)
 
 Развернутая виртуальная машина на Яндекс.Облако
 ![Виртуальная машина](screenshorts/virtual_machine.png)
+
 Интерфейс управления сайтом и пользователями на Wordpress
 ![Админка Wordpress](screenshorts/wordpress.png)
+
 Интерфейс управления доменными именами на reg.ru
 ![DNS](screenshorts/domain.png)
+
 Интерфейс управления DNS на Яндекс.Облако
 ![DNS](screenshorts/dns.png)
+
 Интерфейс управления хостингом на reg.ru
 ![Хостинг](screenshorts/hosting.png)
 
