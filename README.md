@@ -50,7 +50,7 @@ STREAMLIT CLOOD
 - на непрерываемой виртуальной машине установлены операционную систему семейства Linux, веб-сервер Apache, СУБД MySQL и интерпретатор PHP
 - установлен статический адрес машины [158.160.110.213](http://158.160.110.213/)
 - настроен phpmuadmin и wordpress, подготовлены базы данных 
-- настроен хостинг, DNS и SSL на домене www.finpredict.ru [www.finpredict.ru](https://www.finpredict.ru)
+- настроен хостинг, DNS и SSL на домене [www.finpredict.ru](https://www.finpredict.ru)
 - настроен streamlit
 - осуществлен деплой основного модуля прогнозирования на streamlit
 
