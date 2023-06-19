@@ -5,6 +5,20 @@
 Прогнозы делаются с использованием трех алгоритмов: ARIMA, LSTM, Linear Regression. 
 Веб-приложение объединяет прогнозируемые цены на следующие семь дней с анализом настроений сообщений в СМИ, чтобы дать рекомендацию о том, будет ли цена расти или падать.
 
+# Ссылки
+
+[Главная страница](https://github.com/smirnovanton90)
+
+[Страница авторизации](http://158.160.110.213/login/)
+логин: smirnovanton90
+пароль: 776146vA
+
+[Страница дашборда пользователя](http://158.160.110.213/login/)
+
+[Страница модуля прогнозирования](https://vin-57-equity-market-prediction-app-f4fs3v.streamlit.app/)
+В поле "Enter a Stock Name for stock market prediction" предлагается ввести тикер интересующей акции, например - APPL (Apple Inc.), а затем нажать "Predict"
+
+
 # Примечание
 Файл Wordpress был перемещен из репозитория из-за превышения квоты Github LFS. 
 
@@ -16,7 +30,7 @@
 ![Дашборд пользователя](screenshorts/dashboard.png)
 
 Интерфейс модуля предсказзания стоимости акций на Streamlit
-![Модуль предсказания на Streamlit](screenshorts/strreamlit .png)
+![Модуль предсказания на Streamlit](screenshorts/streamlit .png)
 
 Развернутая виртуальная машина на Яндекс.Облако
 ![Виртуальная машина](screenshorts/virtual_machine.png)
@@ -35,22 +49,21 @@
 
 
 # Структура файлов и каталогов
-screenshots - Скриншоты веб-приложения и развернутой инфраструктуры
-wordpress.sql - база данных wordpress
-app.py — файл конфигурации для приложения Streamlit.
-main.py — основной модуль машинного обучения
-data.csv и data2.csv - набор данных и структура сообщений из СМИ о компаниях, котирующихся на бирже, для целей анализа сентимента рынка по ним
+- screenshots - cкриншоты веб-приложения и развернутой инфраструктуры
+- wordpress.sql - база данных wordpress
+- app.py — файл конфигурации для приложения Streamlit.
+-sa.py — основной модуль машинного обучения
+- data.csv и data2.csv - набор данных и структура сообщений из СМИ о компаниях, котирующихся на бирже, для целей анализа сентимента рынка по ним
 
 # Используемые технологии
-Wordpress
-Streamlit
-Tensorflow
-Keras
-Yahoo Finance
-Alphavantage
-Scikit-Learn
-Python
-PHP
+- Wordpress
+- Streamlit
+- Tensorflow
+- Keras
+- Alphavantage
+- Scikit-Learn
+- Python
+- PHP
 
 #  Ресурсы
 ЯнДЕКС ОБЛАКО
@@ -61,7 +74,7 @@ PHP
 - Объём дискового пространства 50 ГБ
 
 STREAMLIT CLOOD
-- ограничения по RAM 1ГБ
+- RAM 4 ГБ
 
 
 
