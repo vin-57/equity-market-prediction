@@ -48,7 +48,7 @@ def data(t):
             a_text = table_row.a.text
             td_text = table_row.td.text
             td_text = td_text.strip()
-            if i  =  =  n-1:
+            if i  ==  n-1:
                 break
     except KeyError:
         pass
@@ -58,7 +58,7 @@ def data(t):
             text = x.a.get_text()
             date_scrape = x.td.text.split()
 
-            if len(date_scrape)  =  =  1:
+            if len(date_scrape)  ==  1:
                 time = date_scrape[0]
 
             else:
@@ -251,15 +251,15 @@ def app():
         df['sentiment_clean'] = sentiment(df['Text'])
         df.loc[(df['sentiment_clean'] >0), 'sentiment'] = 1
         df.loc[(df['sentiment_clean'] < 0), 'sentiment'] = -1
-        df.loc[(df['sentiment_clean']  =  =  0) | (df['sentiment_clean']<0.05), 'sentiment'] = 0
+        df.loc[(df['sentiment_clean']  ==  0) | (df['sentiment_clean']<0.05), 'sentiment'] = 0
         df.to_csv('data.csv')
         st.write("The latest News")
         df1 = df.head(1)
         st.table(df1[["Date", "Headline"]])
         a = df1["sentiment"]
-        if int(a)  =  =  1:
+        if int(a)  ==  1:
             st.success("Postive News, Stock price might increases")
-        elif int(a)  =  =  0:
+        elif int(a)  ==  0:
             st.success("Neutral News , Stock price might not change ")
         else:
             st.wrong("Negative News, Stock price might decrease")
