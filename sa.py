@@ -222,19 +222,19 @@ def recommending(df, global_polarity, today_stock, mean):
             decision = "BUY"
             print()
             print("##############################################################################")
-            print("According to the ML Predictions and Sentiment Analysis of Tweets, a", idea, "in stock is expected  = > ", decision)
-        elif global_polarity < =  0:
+            print("According to the ML Predictions and Sentiment Analysis of Tweets, a", idea, "in stock is expected => ", decision)
+        elif global_polarity <=  0:
             idea = "FALL"
             decision = "SELL"
             print()
             print("##############################################################################")
-            print("According to the ML Predictions and Sentiment Analysis of Tweets, a", idea, "in stock is expected  = > ", decision)
+            print("According to the ML Predictions and Sentiment Analysis of Tweets, a", idea, "in stock is expected => ", decision)
     else:
         idea = "FALL"
         decision = "SELL"
         print()
         print("##############################################################################")
-        print("According to the ML Predictions and Sentiment Analysis of Tweets, a", idea, "in stock is expected  = > ", decision)
+        print("According to the ML Predictions and Sentiment Analysis of Tweets, a", idea, "in stock is expected => ", decision)
     return idea, decision
 def app():
     st.title("Combining Time Series and Sentiment Analysis for  Forecasting")
