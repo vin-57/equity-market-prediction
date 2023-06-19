@@ -1,7 +1,7 @@
 import streamlit as st
 import sa
 PAGES = {
-    "Sentimental Analysis & stock market prediction":sa
+    "Sentimental Analysis & stock market prediction": sa
 }
 
 st.sidebar.title('Finanical')
