@@ -10,7 +10,7 @@
 
 # Скриншоты
 
-![Иллюстрация к проекту](https://github.com/jon/coolproject/raw/master/image/image.png)
+![Главная страница проекта](https://github.com/vin-57/equity-market-prediction/screenshorts/main.png)
 
 ![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
 
