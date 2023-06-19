@@ -7,13 +7,14 @@
 
 # Ссылки
 
-[Главная страница](https://github.com/smirnovanton90)
+[Главная страница](finpredict.ru)
 
 [Страница авторизации](http://158.160.110.213/login/)
+например,
 логин: smirnovanton90
 пароль: 776146vA
 
-[Страница дашборда пользователя](http://158.160.110.213/login/)
+[Страница дашборда пользователя](http://158.160.110.213/dashboard/smirnovanton90/)
 
 [Страница модуля прогнозирования](https://vin-57-equity-market-prediction-app-f4fs3v.streamlit.app/)
 В поле "Enter a Stock Name for stock market prediction" предлагается ввести тикер интересующей акции, например - APPL (Apple Inc.), а затем нажать "Predict"
