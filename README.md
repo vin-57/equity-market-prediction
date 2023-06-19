@@ -10,7 +10,7 @@
 
 # Скриншоты
 
-![Главная страница проекта](https://github.com/vin-57/equity-market-prediction/screenshorts/main.png)
+![Главная страница проекта](screenshorts/main.png)
 
 ![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
 
