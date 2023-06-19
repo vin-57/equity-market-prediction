@@ -1,6 +1,6 @@
 import numpy as np
 import streamlit as st
-import sa
+import main
 PAGES = {
     "Sentimental Analysis & stock market prediction":sa
 }
