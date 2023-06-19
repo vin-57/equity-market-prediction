@@ -6,7 +6,6 @@ from alpha_vantage.timeseries import TimeSeries
 from sklearn.metrics import mean_squared_error
 from bs4 import BeautifulSoup
 import streamlit as st
-nltk.download('stopwords')
 import matplotlib.pyplot as plt
 from urllib.request import urlopen
 from urllib.request import Request
@@ -14,14 +13,8 @@ from textblob import TextBlob
 from nltk.corpus import stopwords
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
-from collections import Counter
-import warnings; warnings.simplefilter('ignore')
-import string
-from nltk import ngrams
-from nltk.tokenize import word_tokenize
+import warnings
 from nltk.stem import SnowballStemmer
-import datetime as dt
-import sklearn
 import yfinance as yf
 from datetime import datetime
 from sklearn.preprocessing import MinMaxScaler
@@ -29,6 +22,9 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import Dropout
 from keras.layers import LSTM
+nltk.download('stopwords')
+warnings.simplefilter('ignore')
+
 
 def data(t):
     n = 1
@@ -72,7 +68,9 @@ def data(t):
     news = pd.DataFrame(parsed_news, columns = columns)
     return news
 
-def review_clean(review):
+
+def review_clean(review): 
+
     # changing to lower case
     lower = review.str.lower()
 
@@ -95,6 +93,7 @@ def review_clean(review):
     dataframe = multiw_remove.str.replace(r'\.{2, }', ' ')
     return dataframe
 
+
 def sentiment(review):
     # Sentiment polarity of the reviews
     pol = []
@@ -102,6 +101,7 @@ def sentiment(review):
         analysis = TextBlob(i)
         pol.append(analysis.sentiment.polarity)
     return pol
+
 def get_historical(quote):
     end = datetime.now()
     start = datetime(end.year-3, end.month, end.day)
@@ -122,25 +122,27 @@ def get_historical(quote):
         df['Volume'] = data['6. volume']
     return df
 
+
 def LSTM_ALGO(df):
-    dataset_train = df.iloc[0:int(0.8*len(df)), :]
-    dataset_test = df.iloc[int(0.8*len(df)):, :]
-    training_set = df.iloc[:, 4:5].values
-    sc = MinMaxScaler(feature_range = (0, 1))#Scaled values btween 0, 1
-    training_set_scaled = sc.fit_transform(training_set)
-    X_train = []#memory with 7 days from day i
-    y_train = []#day i
-    for i in range(7, len(training_set_scaled)):
-        X_train.append(training_set_scaled[i-7:i, 0])
-        y_train.append(training_set_scaled[i, 0])
-    X_train = np.array(X_train)
-    y_train = np.array(y_train)
-    X_forecast = np.array(X_train[-1, 1:])
-    X_forecast = np.append(X_forecast, y_train[-1])
-    X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))#.shape 0 = row, 1 = col
-    X_forecast = np.reshape(X_forecast, (1, X_forecast.shape[0], 1))
-    regressor = Sequential()
-    regressor.add(LSTM(units = 50, return_sequences = True, input_shape = (X_train.shape[1], 1)))
+    dataset_train=df.iloc[0:int(0.8*len(df)),:]
+    dataset_test=df.iloc[int(0.8*len(df)):,:]
+    training_set=df.iloc[:,4:5].values
+    sc=MinMaxScaler(feature_range=(0,1))  #Scaled values btween 0,1
+    training_set_scaled=sc.fit_transform(training_set)
+    X_train=[]  #memory with 7 days from day i
+    y_train=[]  #day i
+    for i in range(7,len(training_set_scaled)):
+        X_train.append(training_set_scaled[i-7:i,0])
+        y_train.append(training_set_scaled[i,0])
+    X_train=np.array(X_train)
+    y_train=np.array(y_train)
+    X_forecast=np.array(X_train[-1,1:])
+    X_forecast=np.append(X_forecast,y_train[-1])
+    X_train=np.reshape(X_train, (X_train.shape[0],X_train.shape[1],1))  #.shape 0=row,1=col
+    X_forecast=np.reshape(X_forecast, (1,X_forecast.shape[0],1))
+    regressor=Sequential()
+    regressor.add(LSTM(units=50,return_sequences=True,input_shape=(X_train.shape[1],1)))
+
     regressor.add(Dropout(0.1))
     regressor.add(LSTM(units = 50, return_sequences = True))
     regressor.add(Dropout(0.1))
@@ -214,21 +216,23 @@ def LIN_REG_ALGO(df):
     return df, lr_pred, forecast_set, mean, error_lr
 
 
+def recommending(df, global_polarity,today_stock,mean):
 
-def recommending(df, global_polarity, today_stock, mean):
     if today_stock.iloc[-1]['Close'] < mean:
         if global_polarity > 0:
             idea = "RISE"
             decision = "BUY"
             print()
             print("##############################################################################")
-            print("According to the ML Predictions and Sentiment Analysis of Tweets, a", idea, "in stock is expected => ", decision)
-        elif global_polarity <=  0:
-            idea = "FALL"
-            decision = "SELL"
+            print("According to the ML Predictions and Sentiment Analysis of Tweets, a",idea,\
+                  "in stock is expected => ",decision)
+        elif global_polarity <= 0:
+            idea="FALL"
+            decision="SELL"
             print()
             print("##############################################################################")
-            print("According to the ML Predictions and Sentiment Analysis of Tweets, a", idea, "in stock is expected => ", decision)
+            print("According to the ML Predictions and Sentiment Analysis of Tweets, a",idea,\
+                  "in stock is expected => ",decision)
     else:
         idea = "FALL"
         decision = "SELL"
@@ -236,9 +240,11 @@ def recommending(df, global_polarity, today_stock, mean):
         print("##############################################################################")
         print("According to the ML Predictions and Sentiment Analysis of Tweets, a", idea, "in stock is expected => ", decision)
     return idea, decision
+
+
 def app():
     st.title("Combining Time Series and Sentiment Analysis for  Forecasting")
-    ticker =  st.text_input("Enter a Stock Name")
+    ticker = st.text_input("Enter a Stock Name")
     if st.button("Submit"):
         news = data(t = ticker)
         news.to_csv('data2.csv')
@@ -263,8 +269,8 @@ def app():
             st.success("Neutral News , Stock price might not change ")
         else:
             st.wrong("Negative News, Stock price might decrease")
-    s =  st.text_input("Enter a Stock Name for stock market prediction")
-    if st.button("Predict"):
+    s = st.text_input("Enter a Stock Name for stock market prediction")  
+    if st.button("Predict"):  
         stock = get_historical(s)
         stock.to_csv(''+s+'.csv')
         df2 = pd.read_csv(''+s+'.csv')
