@@ -79,6 +79,6 @@ STREAMLIT CLOOD
 # Авторы
 Иванов Иван
 [Github](https://github.com/vin-57)
-Github:https://github.com/vin-57
+
 Смирнов Антон
 [Github](https://github.com/smirnovanton90)
