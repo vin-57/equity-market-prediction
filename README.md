@@ -9,16 +9,30 @@
 Файл Wordpress был перемещен из репозитория из-за превышения квоты Github LFS. 
 
 # Скриншоты
-
+Интерфейс главной станицы проекта
 ![Главная страница проекта](screenshorts/main.png)
+Интерфейс дашборда пользователя
+![Дашборд пользователя](screenshorts/dashboard.png)
+Интерфейс модуля предсказзания стоимости акций на Streamlit
+![Модуль предсказания на Streamlit](screenshorts/strreamlit .png)
 
-![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+Развернутая виртуальная машина на Яндекс.Облако
+![Виртуальная машина](screenshorts/virtual_machine.png)
+Интерфейс управления сайтом и пользователями на Wordpress
+![Админка Wordpress](screenshorts/wordpress.png)
+Интерфейс управления доменными именами на reg.ru
+![DNS](screenshorts/domain.png)
+Интерфейс управления DNS на Яндекс.Облако
+![DNS](screenshorts/dns.png)
+Интерфейс управления хостингом на reg.ru
+![Хостинг](screenshorts/hosting.png)
+
 
 # Структура файлов и каталогов
-screenshots - Скриншоты веб-приложения
+screenshots - Скриншоты веб-приложения и развернутой инфраструктуры
 wordpress.sql - база данных wordpress
 app.py — файл конфигурации для приложения Streamlit.
-sa.py — основной модуль машинного обучения
+main.py — основной модуль машинного обучения
 data.csv и data2.csv - набор данных и структура сообщений из СМИ о компаниях, котирующихся на бирже, для целей анализа сентимента рынка по ним
 
 # Используемые технологии
